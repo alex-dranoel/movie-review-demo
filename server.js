@@ -10,6 +10,10 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.get('/ping', function (req, res) {
  return res.send('pong');
 });
+app.get('/api/v1/info', function (req, res) {
+  var status = {status: "UP"};
+  return res.json( status )
+})
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
